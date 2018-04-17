@@ -1,4 +1,6 @@
 package fr.berger.qube;
 
-public class Unit {
+import fr.berger.beyondcode.util.EnhancedObservable;
+
+public class Unit extends EnhancedObservable {
 }
