@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:viewportWidth="20"
+    android:viewportHeight="20"
+    android:width="50dp"
+    android:height="50dp">
+    <group
+        android:translateY="-1032.362">
+        <path
+            android:pathData="M15 1042.3622a5 5 0 0 1 -5 5 5 5 0 0 1 -5 -5 5 5 0 0 1 5 -5 5 5 0 0 1 5 5z"
+            android:fillColor="#ffffff"
+            android:strokeLineJoin="round"
+            android:strokeLineCap="square"
+            android:strokeMiterLimit="4" />
+        <path
+            android:pathData="M10 1036.3622l0 -3"
+            android:strokeWidth="1"
+            android:strokeLineJoin="miter"
+            android:strokeLineCap="butt"
+            android:strokeColor="#ffffff" />
+        <path
+            android:pathData="M10 1051.3622l0 -3"
+            android:strokeWidth="1"
+            android:strokeLineJoin="miter"
+            android:strokeLineCap="butt"
+            android:strokeColor="#ffffff" />
+        <path
+            android:pathData="M16 1042.3622l3 0"
+            android:strokeWidth="1"
+            android:strokeLineJoin="miter"
+            android:strokeLineCap="butt"
+            android:strokeColor="#ffffff" />
+        <path
+            android:pathData="M4 1042.3622l-3 0"
+            android:strokeWidth="1"
+            android:strokeLineJoin="miter"
+            android:strokeLineCap="butt"
+            android:strokeColor="#ffffff" />
+        <path
+            android:pathData="M14.87868 1047.2408L17 1049.3622"
+            android:strokeWidth="1"
+            android:strokeLineJoin="miter"
+            android:strokeLineCap="butt"
+            android:strokeColor="#ffffff" />
+        <path
+            android:pathData="M3 1035.3622l2.12132 2.1214"
+            android:strokeWidth="1"
+            android:strokeLineJoin="miter"
+            android:strokeLineCap="butt"
+            android:strokeColor="#ffffff" />
+        <path
+            android:pathData="M14.87868 1037.4836L17 1035.3622"
+            android:strokeWidth="1"
+            android:strokeLineJoin="miter"
+            android:strokeLineCap="butt"
+            android:strokeColor="#ffffff" />
+        <path
+            android:pathData="M3 1049.3622l2.12132 -2.1214"
+            android:strokeWidth="1"
+            android:strokeLineJoin="miter"
+            android:strokeLineCap="butt"
+            android:strokeColor="#ffffff" />
+    </group>
+</vector>
