@@ -4,34 +4,35 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.google.android.gms.plus.PlusOneButton;
 
+import org.jetbrains.annotations.NotNull;
+
+import fr.berger.quantumunit.parcel.UnitParcelable;
 import fr.berger.qube.Unit;
 
 /**
  * A fragment with a Google +1 button.
- * Activities that contain this fragment must implement the
- * {@link QubeEntry.OnFragmentInteractionListener} interface
- * to handle interaction events.
  * Use the {@link QubeEntry#newInstance} factory method to
  * create an instance of this fragment.
  */
+@Deprecated
 public class QubeEntry extends Fragment {
 	// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 	private static final String UNIT = "fr.berger.quantumunit.QubeEntry.UNIT";
 	
-	private Unit currentUnit;
+	private UnitParcelable currentUnit;
 	
 	private EditText et_unit;
 	private ImageButton bt_convert;
-	
-	private OnFragmentInteractionListener mListener;
 	
 	public QubeEntry() {
 		// Required empty public constructor
@@ -45,19 +46,22 @@ public class QubeEntry extends Fragment {
 	 * @return A new instance of fragment QubeEntry.
 	 */
 	// TODO: Rename and change types and number of parameters
-	public static QubeEntry newInstance(Unit unit) {
+	public static QubeEntry newInstance(@NotNull UnitParcelable unit) {
 		QubeEntry fragment = new QubeEntry();
 		Bundle args = new Bundle();
-		args.putSerializable(UNIT, unit);
+		args.putParcelable(UNIT, new UnitParcelable(unit));
 		fragment.setArguments(args);
 		return fragment;
+	}
+	public static QubeEntry newInstance(@NotNull Unit unit) {
+		return newInstance(new UnitParcelable(unit));
 	}
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		if (getArguments() != null) {
-			currentUnit = (Unit) getArguments().getSerializable(UNIT);
+			currentUnit = getArguments().getParcelable(UNIT);
 		}
 	}
 	
@@ -72,6 +76,14 @@ public class QubeEntry extends Fragment {
 		
 		et_unit = (EditText) view.findViewById(R.id.et_unit);
 		bt_convert = (ImageButton) view.findViewById(R.id.bt_convert);
+		
+		et_unit.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+			@Override
+			public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+				onConversionRequired(null);
+				return false;
+			}
+		});
 		
 		if (currentUnit != null) {
 			et_unit.setHint(currentUnit.getName() + " (" + currentUnit.getSymbol() + ")");
@@ -93,42 +105,17 @@ public class QubeEntry extends Fragment {
 		//mPlusOneButton.initialize(PLUS_ONE_URL, PLUS_ONE_REQUEST_CODE);
 	}
 	
-	public void onConversionRequired(Uri uri) {
-		if (mListener != null) {
-			mListener.onFragmentInteraction(uri);
-		}
+	public void onConversionRequired(View view) {
+		//
 	}
 	
 	@Override
 	public void onAttach(Context context) {
 		super.onAttach(context);
-		if (context instanceof OnFragmentInteractionListener) {
-			mListener = (OnFragmentInteractionListener) context;
-		} else {
-			throw new RuntimeException(context.toString()
-					+ " must implement OnFragmentInteractionListener");
-		}
 	}
 	
 	@Override
 	public void onDetach() {
 		super.onDetach();
-		mListener = null;
 	}
-	
-	/**
-	 * This interface must be implemented by activities that contain this
-	 * fragment to allow an interaction in this fragment to be communicated
-	 * to the activity and potentially other fragments contained in that
-	 * activity.
-	 * <p>
-	 * See the Android Training lesson <a href=
-	 * "http://developer.android.com/training/basics/fragments/communicating.html"
-	 * >Communicating with Other Fragments</a> for more information.
-	 */
-	public interface OnFragmentInteractionListener {
-		// TODO: Update argument type and name
-		void onFragmentInteraction(Uri uri);
-	}
-	
 }
