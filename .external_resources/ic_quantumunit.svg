@@ -15,7 +15,7 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.91 r13725"
-   sodipodi:docname="ic_quantumunit.svg">
+   sodipodi:docname="ic_quantumunit_noblur.svg">
   <title
      id="title4138">QuantumUnit</title>
   <defs
@@ -63,10 +63,10 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="31.678384"
-     inkscape:cx="11.563655"
+     inkscape:cx="5.8026288"
      inkscape:cy="9.9391316"
      inkscape:document-units="px"
-     inkscape:current-layer="layer4"
+     inkscape:current-layer="layer2"
      showgrid="true"
      units="px"
      inkscape:snap-bbox="true"
@@ -113,28 +113,6 @@
        cx="10"
        cy="1042.3622"
        r="9" />
-  </g>
-  <g
-     inkscape:groupmode="layer"
-     id="layer4"
-     inkscape:label="Blur"
-     style="display:inline">
-    <g
-       id="g4683"
-       style="filter:url(#filter4781)">
-      <path
-         sodipodi:nodetypes="ccccccc"
-         inkscape:connector-curvature="0"
-         id="path4153-3"
-         d="m 5,7 5,3 0,6 5,-3 0,-6 -5,-2.9999998 z"
-         style="display:inline;fill:#f2f2f2;fill-opacity:1;fill-rule:evenodd;stroke:#f2f2f2;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-      <path
-         sodipodi:nodetypes="ccccccc"
-         inkscape:connector-curvature="0"
-         id="path4142-0"
-         d="M 10,4.0000002 5,7 l 0,6 5,3 5,-3 0,-6 z"
-         style="display:inline;fill:none;fill-rule:evenodd;stroke:#f2f2f2;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-    </g>
   </g>
   <g
      inkscape:groupmode="layer"

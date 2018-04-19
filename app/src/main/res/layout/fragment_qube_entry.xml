@@ -2,13 +2,39 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	tools:context=".QubeEntry">
+	tools:context=".QubeEntry"
+	tools:showIn="@layout/fragment_qube_conversion">
 	
-	<com.google.android.gms.plus.PlusOneButton xmlns:plus="http://schemas.android.com/apk/lib/com.google.android.gms.plus"
+	<!--<com.google.android.gms.plus.PlusOneButton xmlns:plus="http://schemas.android.com/apk/lib/com.google.android.gms.plus"
 		android:id="@+id/plus_one_button"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		plus:annotation="inline"
-		plus:size="standard" />
+		plus:size="standard" />-->
+	
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+		
+		<EditText
+			android:id="@+id/et_unit"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_toLeftOf="@id/bt_convert"
+			android:ems="10"
+			android:hint="@string/qube"
+			android:inputType="numberDecimal|numberSigned" />
+		
+		<ImageButton
+			android:id="@+id/bt_convert"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentRight="true"
+			android:scaleType="centerInside"
+			android:adjustViewBounds="true"
+			android:src="@android:drawable/ic_menu_rotate"
+			android:text="@string/convert" />
+	
+	</RelativeLayout>
 
 </FrameLayout>

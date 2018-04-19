@@ -12,6 +12,21 @@
             android:strokeMiterLimit="4" />
     </group>
     <path
+        android:pathData="M5 7l5 3 0 6 5 -3 0 -6 -5 -2.9999998z"
+        android:strokeWidth="0.5"
+        android:fillColor="#2fb8a0"
+        android:strokeLineJoin="round"
+        android:strokeLineCap="butt"
+        android:strokeMiterLimit="4"
+        android:strokeColor="#2fb8a0" />
+    <path
+        android:pathData="M10 4.0000002L5 7l0 6 5 3 5 -3 0 -6z"
+        android:strokeWidth="1"
+        android:strokeLineJoin="miter"
+        android:strokeLineCap="butt"
+        android:strokeMiterLimit="4"
+        android:strokeColor="#2fb8a0" />
+    <path
         android:pathData="M5 7l5 3 0 6 5 -3 0 -6 -5 -3z"
         android:strokeWidth="0.5"
         android:fillColor="#21c6a9"
