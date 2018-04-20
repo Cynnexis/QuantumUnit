@@ -70,11 +70,10 @@ public class QubeConversionFragment extends Fragment {
 			throw new NullPointerException();
 		
 		// Building parcelable array
-		ArrayList<UnitParcelable> list = new ArrayList<>(units.size());
-		for (Unit unit : units) {
+		ArrayList<UnitParcelable> list = new ArrayList<>(units.size() == 0 ? 5 : units.size());
+		for (Unit unit : units)
 			if (unit != null)
 				list.add(new UnitParcelable(unit));
-		}
 		
 		QubeConversionFragment fragment = new QubeConversionFragment();
 		
@@ -127,10 +126,12 @@ public class QubeConversionFragment extends Fragment {
 		tx_qube = view.findViewById(R.id.tx_qube);
 		tx_qube.setText(name);
 		
-		// Building QubeEntry fragment from "units" list
-		lv_fragments = view.findViewById(R.id.lv_fragments);
-		QubeEntryAdapter adapter = new QubeEntryAdapter(this.getContext(), units);
-		lv_fragments.setAdapter(adapter);
+		// Building entries from "units" list
+		if (units.size() > 0) {
+			lv_fragments = view.findViewById(R.id.lv_fragments);
+			QubeEntryAdapter adapter = new QubeEntryAdapter(this.getContext(), units);
+			lv_fragments.setAdapter(adapter);
+		}
 		
 		return view;
 	}

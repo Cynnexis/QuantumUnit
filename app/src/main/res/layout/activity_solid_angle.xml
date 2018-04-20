@@ -6,11 +6,11 @@
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:orientation="vertical"
-	tools:context=".LengthConversionActivity">
+	tools:context=".SolidAngleActivity">
 	
 	<FrameLayout
-		android:id="@+id/fl_length_container"
+		android:id="@+id/fl_solid_angle_container"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"/>
-	
+
 </LinearLayout>

@@ -36,10 +36,10 @@ dependencies {
 	//implementation 'com.android.support:cardview-v7:27.1.1'
 	
 	//implementation 'com.vdurmont:emoji-java:4.0.0'
-	
 	implementation files('libs/BeyondCode.jar')
 	implementation files('libs/EnhancedList.jar')
 	implementation files('libs/annotations-java8.jar')
 	implementation files('libs/Qube.jar')
 	implementation 'com.android.support:gridlayout-v7:27.1.1'
+	implementation 'com.android.support:design:27.1.1'
 }

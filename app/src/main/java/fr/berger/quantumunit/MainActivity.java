@@ -2,17 +2,15 @@ package fr.berger.quantumunit;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
+import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 	
+	/*
 	private Button bt_length;
 	private Button bt_time;
 	private Button bt_mass;
@@ -21,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
 	private Button bt_electricity;
 	private Button bt_luminosity;
 	private Button bt_plane_angle;
-	private Button bt_solid_angle;
+	private Button bt_solid_angle;*/
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
 			}
 		});*/
 		
+		/*
 		bt_length = (Button) findViewById(R.id.bt_length);
 		bt_time = (Button) findViewById(R.id.bt_time);
 		bt_mass = (Button) findViewById(R.id.bt_mass);
@@ -47,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
 		bt_electricity = (Button) findViewById(R.id.bt_electricity);
 		bt_luminosity = (Button) findViewById(R.id.bt_luminosity);
 		bt_plane_angle = (Button) findViewById(R.id.bt_plane_angle);
-		bt_solid_angle = (Button) findViewById(R.id.bt_solid_angle);
+		bt_solid_angle = (Button) findViewById(R.id.bt_solid_angle);*/
 	}
 
 	@Override
@@ -78,38 +77,38 @@ public class MainActivity extends AppCompatActivity {
 	}
 	
 	public void convertTime(View view) {
-		Snackbar.make(view, "Not implemented.", Snackbar.LENGTH_LONG)
-				.setAction("Action", null).show();
+		Intent intent = new Intent(this, TimeActivity.class);
+		startActivity(intent);
 	}
 	
 	public void convertMass(View view) {
-		Snackbar.make(view, "Not implemented.", Snackbar.LENGTH_LONG)
-				.setAction("Action", null).show();
+		Intent intent = new Intent(this, MassConversionActivity.class);
+		startActivity(intent);
 	}
 	
 	public void convertTemperature(View view) {
-		Snackbar.make(view, "Not implemented.", Snackbar.LENGTH_LONG)
-				.setAction("Action", null).show();
+		Intent intent = new Intent(this, TemperatureConversionActivity.class);
+		startActivity(intent);
 	}
 	
 	public void convertAmount(View view) {
-		Snackbar.make(view, "Not implemented.", Snackbar.LENGTH_LONG)
-				.setAction("Action", null).show();
+		Intent intent = new Intent(this, AmountConversionActivity.class);
+		startActivity(intent);
 	}
 	
 	public void convertElectricity(View view) {
-		Snackbar.make(view, "Not implemented.", Snackbar.LENGTH_LONG)
-				.setAction("Action", null).show();
+		Intent intent = new Intent(this, ElectricityConversionActivity.class);
+		startActivity(intent);
 	}
 	
 	public void convertLuminosity(View view) {
-		Snackbar.make(view, "Not implemented.", Snackbar.LENGTH_LONG)
-				.setAction("Action", null).show();
+		Intent intent = new Intent(this, LuminosityConversionActivity.class);
+		startActivity(intent);
 	}
 	
 	public void convertPlaneAngle(View view) {
-		Snackbar.make(view, "Not implemented.", Snackbar.LENGTH_LONG)
-				.setAction("Action", null).show();
+		Intent intent = new Intent(this, PlaneAngleConversionActivity.class);
+		startActivity(intent);
 	}
 	
 	public void convertSolidAngle(View view) {

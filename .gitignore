@@ -19,7 +19,7 @@ gen/
 
 # Gradle files
 .gradle/
-build/
+#build/
 
 # Local configuration file (sdk path, etc)
 local.properties
@@ -79,10 +79,10 @@ gen-external-apklibs
 # Log Files
 
 # Android Studio
-/*/build/
+#/*/build/
 /*/local.properties
 /*/out
-/*/*/build
+#/*/*/build
 /*/*/production
 *.ipr
 *~
@@ -183,7 +183,7 @@ fabric.properties
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 
 ### Gradle ###
-**/build/
+#**/build/
 
 # Ignore Gradle GUI config
 gradle-app.setting

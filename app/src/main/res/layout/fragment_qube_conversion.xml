@@ -34,7 +34,8 @@
 				android:layout_toEndOf="@+id/qube_icon"
 				android:layout_weight="1"
 				android:nextFocusLeft="@id/qube_icon"
-				android:text="Qube Text" />
+				android:text="Qube Text"
+				android:textColor="@android:color/white" />
 			
 			<Switch
 				android:id="@+id/sw_auto_conversion"
@@ -43,7 +44,8 @@
 				android:layout_alignParentEnd="true"
 				android:layout_centerVertical="true"
 				android:checked="true"
-				android:text="Auto-conversion" />
+				android:text="Auto-conversion"
+				android:textColor="@android:color/white" />
 		
 		</RelativeLayout>
 		

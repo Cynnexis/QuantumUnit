@@ -5,10 +5,7 @@
 	<!-- To access Google+ APIs: -->
 	<uses-permission android:name="android.permission.INTERNET" />
 	
-	<!--
-    android:icon="@mipmap/ic_launcher"
-        android:roundIcon="@mipmap/ic_launcher_round"
-    -->
+	<!-- android:theme="@style/QuantumUnitTheme" -->
 	<application
 		android:allowBackup="true"
 		android:icon="@drawable/ic_quantumunit"
@@ -16,26 +13,106 @@
 		android:roundIcon="@drawable/ic_quantumunit"
 		android:supportsRtl="true"
 		android:theme="@style/AppTheme">
-		
-		<meta-data android:name="com.samsung.android.sdk.multiwindow.enable" android:value="true"/>
-		<meta-data android:name="android.intent.category.MULTIWINDOW_LAUNCHER" android:value="true"/>
-		<meta-data android:name="com.sec.android.intent.category.MULTIWINDOW_LAUNCHER" android:value="true"/>
+		<meta-data
+			android:name="com.samsung.android.sdk.multiwindow.enable"
+			android:value="true" />
+		<meta-data
+			android:name="android.intent.category.MULTIWINDOW_LAUNCHER"
+			android:value="true" />
+		<meta-data
+			android:name="com.sec.android.intent.category.MULTIWINDOW_LAUNCHER"
+			android:value="true" />
 		
 		<activity
 			android:name=".MainActivity"
 			android:label="@string/app_name"
 			android:theme="@style/AppTheme.NoActionBar">
-			
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
+				
 				<category android:name="android.intent.category.LAUNCHER" />
 			</intent-filter>
 		</activity>
-		
-		<activity android:name=".LengthConversionActivity">
+		<activity
+			android:name=".LengthConversionActivity"
+			android:label="@string/length"
+			android:parentActivityName=".MainActivity"
+			android:theme="@style/AppTheme.NoActionBar">
 			<meta-data
 				android:name="android.support.PARENT_ACTIVITY"
-				android:value=".MainActivity" />
+				android:value="fr.berger.quantumunit.MainActivity" />
+		</activity>
+		<activity
+			android:name=".TimeActivity"
+			android:label="@string/title_activity_time"
+			android:parentActivityName=".MainActivity"
+			android:theme="@style/AppTheme.NoActionBar">
+			<meta-data
+				android:name="android.support.PARENT_ACTIVITY"
+				android:value="fr.berger.quantumunit.MainActivity" />
+		</activity>
+		<activity
+			android:name=".MassConversionActivity"
+			android:label="@string/mass"
+			android:parentActivityName=".MainActivity"
+			android:theme="@style/AppTheme.NoActionBar">
+			<meta-data
+				android:name="android.support.PARENT_ACTIVITY"
+				android:value="fr.berger.quantumunit.MainActivity" />
+		</activity>
+		<activity
+			android:name=".TemperatureConversionActivity"
+			android:label="@string/temperature"
+			android:parentActivityName=".MainActivity"
+			android:theme="@style/AppTheme.NoActionBar">
+			<meta-data
+				android:name="android.support.PARENT_ACTIVITY"
+				android:value="fr.berger.quantumunit.MainActivity" />
+		</activity>
+		<activity
+			android:name=".AmountConversionActivity"
+			android:label="@string/amount_of_substance"
+			android:parentActivityName=".MainActivity"
+			android:theme="@style/AppTheme.NoActionBar">
+			<meta-data
+				android:name="android.support.PARENT_ACTIVITY"
+				android:value="fr.berger.quantumunit.MainActivity" />
+		</activity>
+		<activity
+			android:name=".ElectricityConversionActivity"
+			android:label="@string/electric_current"
+			android:parentActivityName=".MainActivity"
+			android:theme="@style/AppTheme.NoActionBar">
+			<meta-data
+				android:name="android.support.PARENT_ACTIVITY"
+				android:value="fr.berger.quantumunit.MainActivity" />
+		</activity>
+		<activity
+			android:name=".LuminosityConversionActivity"
+			android:label="@string/luminous_intensity"
+			android:parentActivityName=".MainActivity"
+			android:theme="@style/AppTheme.NoActionBar">
+			<meta-data
+				android:name="android.support.PARENT_ACTIVITY"
+				android:value="fr.berger.quantumunit.MainActivity" />
+		</activity>
+		<activity
+			android:name=".PlaneAngleConversionActivity"
+			android:label="@string/plane_angle"
+			android:parentActivityName=".MainActivity"
+			android:theme="@style/AppTheme.NoActionBar">
+			<meta-data
+				android:name="android.support.PARENT_ACTIVITY"
+				android:value="fr.berger.quantumunit.MainActivity" />
+		</activity>
+		<activity
+			android:name=".SolidAngleActivity"
+			android:label="@string/solid_angle"
+			android:parentActivityName=".MainActivity"
+			android:theme="@style/AppTheme.NoActionBar">
+			<meta-data
+				android:name="android.support.PARENT_ACTIVITY"
+				android:value="fr.berger.quantumunit.MainActivity" />
 		</activity>
 	</application>
 

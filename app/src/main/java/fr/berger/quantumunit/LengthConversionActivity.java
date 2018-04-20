@@ -1,10 +1,8 @@
 package fr.berger.quantumunit;
 
-import android.support.v4.app.Fragment;
+import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.widget.FrameLayout;
 
 import fr.berger.qube.UnitBuilder;
 

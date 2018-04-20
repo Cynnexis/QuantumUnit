@@ -9,17 +9,20 @@
 		android:id="@+id/et_unit"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_toLeftOf="@id/bt_convert"
+		android:layout_toStartOf="@id/bt_convert"
 		android:ems="10"
 		android:hint="@string/qube"
-		android:inputType="numberDecimal|numberSigned" />
+		android:inputType="numberDecimal|numberSigned"
+		android:textColor="@android:color/white" />
 	
 	<ImageButton
 		android:id="@+id/bt_convert"
+		style="?android:attr/borderlessButtonStyle"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:layout_alignParentRight="true"
+		android:layout_alignParentEnd="true"
 		android:adjustViewBounds="true"
+		android:contentDescription="@string/convert"
 		android:scaleType="centerInside"
 		android:src="@android:drawable/ic_menu_rotate"
 		android:text="@string/convert" />
