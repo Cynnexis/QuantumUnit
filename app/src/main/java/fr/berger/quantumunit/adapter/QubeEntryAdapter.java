@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.widget.AppCompatEditText;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +18,7 @@ import android.widget.TextView;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Objects;
 
@@ -25,6 +27,7 @@ import fr.berger.quantumunit.R;
 import fr.berger.quantumunit.fragmentinterface.Convertible;
 import fr.berger.quantumunit.parcel.UnitParcelable;
 import fr.berger.qube.Qube;
+import fr.berger.qube.Unit;
 import fr.berger.qube.exceptions.NoConversionFoundException;
 import fr.berger.qube.exceptions.UnitTypeIncompatibleException;
 
@@ -34,6 +37,17 @@ public class QubeEntryAdapter extends BaseAdapter implements Serializable, Clone
 	private LayoutInflater inflater;
 	private Lexicon<UnitParcelable> units;
 	
+	/**
+	 * When converting == true, it means that there is conversion in progress, and that
+	 * EditText.setText will be called. Hence, the TextWatcher must be disabled during the
+	 * operation.
+	 */
+	private boolean converting = false;
+	
+	/**
+	 * Save all the views created so far. "views" and "units" are sync (views[i] associated to the
+	 * unit units[i])
+	 */
 	private Lexicon<View> views;
 	
 	public QubeEntryAdapter(Context context, @NotNull Lexicon<UnitParcelable> units) {
@@ -91,32 +105,45 @@ public class QubeEntryAdapter extends BaseAdapter implements Serializable, Clone
 			
 			@Override
 			public void afterTextChanged(Editable s) {
-				double value;
-				try {
-					value = Double.valueOf(s.toString());
-				} catch (ClassCastException | NumberFormatException ex) {
-					ex.printStackTrace();
-					value = 0;
+				if (!converting) {
+					if (s.toString().equals(""))
+						clearAllEditText();
+					else {
+						double value;
+						try {
+							value = Double.valueOf(s.toString());
+						} catch (ClassCastException | NumberFormatException ex) {
+							ex.printStackTrace();
+							value = 0;
+						}
+						
+						onConversionRequired(view, unit, value);
+					}
 				}
-				
-				onConversionRequired(view, unit, value);
 			}
 		});
 		bt_convert.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				ViewGroup group = (ViewGroup) v.getParent();
-				AppCompatEditText editText = (AppCompatEditText) group.getChildAt(0);
-				
-				double value;
-				try {
-					value = Double.valueOf(editText.getText().toString());
-				} catch (ClassCastException | NumberFormatException ex) {
-					ex.printStackTrace();
-					value = 0;
+				if (!converting) {
+					ViewGroup group = (ViewGroup) v.getParent();
+					AppCompatEditText editText = (AppCompatEditText) group.getChildAt(0);
+					String message = editText.getText().toString();
+					
+					if (message.equals(""))
+						clearAllEditText();
+					else {
+						double value;
+						try {
+							value = Double.valueOf(message);
+						} catch (ClassCastException | NumberFormatException ex) {
+							ex.printStackTrace();
+							value = 0;
+						}
+						
+						onConversionRequired(v, unit, value);
+					}
 				}
-				
-				onConversionRequired(v, unit, value);
 			}
 		});
 		
@@ -134,22 +161,75 @@ public class QubeEntryAdapter extends BaseAdapter implements Serializable, Clone
 	
 	@Override
 	public void onConversionRequired(View view, UnitParcelable unit, double value) {
-		if (unit == null)
+		if (unit == null) {
+			converting = false;
 			throw new NullPointerException();
+		}
 		
-		for (UnitParcelable u : getUnits()) {
-			if (!unit.equals(u)) {
-				try {
-					Qube converted = unit.convert(value, u);
-					System.out.println("QubeEntryAdapter.onConversionRequired> unit(" + unit.toString() + ") = " + converted.toString());
-					
-					// Notify all the other views
-					// TODO
-				} catch (UnitTypeIncompatibleException | NoConversionFoundException e) {
-					e.printStackTrace();
+		// Search unit in "units"
+		ArrayList<Integer> positions = units.search(unit);
+		if (positions.isEmpty()) {
+			converting = false;
+			throw new IllegalArgumentException("unit \"" + unit.toString() + "\" is not in the list \"units\".");
+		}
+		if (positions.size() > 1)
+			Log.w(this.getClass().getSimpleName(), "The unit \"" + unit.toString() + "\" appears " + positions.size() + " times in \"units\". The first element will be taken");
+		
+		int position = positions.get(0);
+		
+		// Notify all the other views
+		for (int i = 0, maxi = getViews().size(); i < maxi; i++) {
+			if (i != position) {
+				// Convert
+				Unit destination = getUnits().get(i);
+				if (destination != null) {
+					try {
+						Qube converted = unit.convert(value, destination);
+						changeEditText(i, Double.toString(converted.getValue()));
+					} catch (UnitTypeIncompatibleException | NoConversionFoundException e) {
+						converting = false;
+						e.printStackTrace();
+					}
 				}
 			}
 		}
+		converting = false;
+	}
+	
+	/**
+	 * Change the content of the edittext contained in view "i" in "views"
+	 * @param position
+	 */
+	public void changeEditText(int position, @NotNull String message) {
+		View currentView = getViews().get(position);
+		if (currentView != null) {
+			ViewGroup group = (ViewGroup) currentView;
+			View maybeEditText = group.getChildAt(0);
+			
+			// Search for the EditText in "group"
+			int j;
+			int maxj;
+			for (j = 0, maxj = group.getChildCount(); j < maxj && (maybeEditText == null || !(maybeEditText instanceof EditText)); j++)
+				maybeEditText = group.getChildAt(j);
+			
+			// If not found
+			if (j == maxj) {
+				converting = false;
+				throw new IllegalArgumentException("No EditText in the view n°" + position + ": " + currentView.toString());
+			}
+			
+			converting = true;
+			EditText et = (EditText) maybeEditText;
+			et.setText(message);
+			converting = false;
+		}
+	}
+	
+	public void clearAllEditText() {
+		converting = true;
+		for (int i = 0, maxi = getViews().size(); i < maxi; i++)
+			changeEditText(i, "");
+		converting = false;
 	}
 	
 	/* ITERABLE OVERRIDES */
