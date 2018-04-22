@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import fr.berger.qube.UnitBuilder;
 
-public class SolidAngleActivity extends AppCompatActivity {
+public class SolidAngleConversionActivity extends AppCompatActivity {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

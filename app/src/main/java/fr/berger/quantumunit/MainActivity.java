@@ -1,8 +1,8 @@
 package fr.berger.quantumunit;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -73,46 +73,46 @@ public class MainActivity extends AppCompatActivity {
 	
 	public void convertLength(View view) {
 		Intent intent = new Intent(this, LengthConversionActivity.class);
-		startActivity(intent);
+		startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
 	}
 	
 	public void convertTime(View view) {
 		Intent intent = new Intent(this, TimeActivity.class);
-		startActivity(intent);
+		startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
 	}
 	
 	public void convertMass(View view) {
 		Intent intent = new Intent(this, MassConversionActivity.class);
-		startActivity(intent);
+		startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
 	}
 	
 	public void convertTemperature(View view) {
 		Intent intent = new Intent(this, TemperatureConversionActivity.class);
-		startActivity(intent);
+		startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
 	}
 	
 	public void convertAmount(View view) {
 		Intent intent = new Intent(this, AmountConversionActivity.class);
-		startActivity(intent);
+		startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
 	}
 	
 	public void convertElectricity(View view) {
 		Intent intent = new Intent(this, ElectricityConversionActivity.class);
-		startActivity(intent);
+		startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
 	}
 	
 	public void convertLuminosity(View view) {
 		Intent intent = new Intent(this, LuminosityConversionActivity.class);
-		startActivity(intent);
+		startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
 	}
 	
 	public void convertPlaneAngle(View view) {
 		Intent intent = new Intent(this, PlaneAngleConversionActivity.class);
-		startActivity(intent);
+		startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
 	}
 	
 	public void convertSolidAngle(View view) {
-		Snackbar.make(view, "Not implemented.", Snackbar.LENGTH_LONG)
-				.setAction("Action", null).show();
+		Intent intent = new Intent(this, SolidAngleConversionActivity.class);
+		startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
 	}
 }

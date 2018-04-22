@@ -2,6 +2,17 @@
 
 	<!-- Base application theme. -->
 	<style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+		<!-- enable window content transitions -->
+		<item name="android:windowActivityTransitions">true</item>
+		
+		<!-- specify enter and exit transitions -->
+		<item name="android:windowEnterTransition">@android:transition/slide_left</item>
+		<item name="android:windowExitTransition">@android:transition/slide_right</item>
+		
+		<!-- specify shared element transitions -->
+		<item name="android:windowSharedElementEnterTransition">@transition/change_image_transform</item>
+		<item name="android:windowSharedElementExitTransition">@transition/change_image_transform</item>
+		
 		<!-- Customize your theme here. -->
 		<item name="colorPrimary">@color/colorPrimary</item>
 		<item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -9,6 +20,17 @@
 	</style>
 
 	<style name="AppTheme.NoActionBar">
+		<!-- enable window content transitions -->
+		<item name="android:windowActivityTransitions">true</item>
+		
+		<!-- specify enter and exit transitions -->
+		<item name="android:windowEnterTransition">@android:transition/slide_left</item>
+		<item name="android:windowExitTransition">@android:transition/slide_right</item>
+		
+		<!-- specify shared element transitions -->
+		<item name="android:windowSharedElementEnterTransition">@transition/change_image_transform</item>
+		<item name="android:windowSharedElementExitTransition">@transition/change_image_transform</item>
+		
 		<item name="windowActionBar">false</item>
 		<item name="windowNoTitle">true</item>
 	</style>
@@ -24,10 +46,11 @@
 	
 	
 	<style name="QuantumUnitTheme" parent="QuantumUnitTheme.Base">
-	
+		<item name="android:windowActivityTransitions">true</item>
 	</style>
 	
 	<style name="QuantumUnitTheme.Base" parent="Theme.AppCompat.Light.DarkActionBar">
+		<item name="android:windowActivityTransitions">true</item>
 		<item name="windowNoTitle">true</item>
 		<item name="windowActionBar">false</item>
 		<item name="colorPrimary">@color/colorPrimary</item>
